@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare web aplication</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
+</head>
+
+<body style="height: 890px;">
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-sm-12 d-flex justify-content-center">
+                <h1 class="text-center">Healthcare web aplication</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-sm-12 d-flex justify-content-center">
+                <% if (login){ %>
+                    <h2>Welcome: <strong><%= name %></strong> </h2>
+                    <h3>Your group is:<strong><%= group %></strong> </h3>
+                    <a href="/logout" type="button" class="btn btn-secondary m-3">Log out</a>
+                <% } else{ %>
+                    <div class="row">
+                        <div class="col-sm-12 d-flex justify-content-center">
+                            <h2><strong><%= name %></strong> </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 d-flex justify-content-center">
+                            <a href="/register" type="button" class="btn btn-primary m-3">Sign up</a>
+                            <a href="/login" type="button" class="btn btn-secondary m-3">Log in</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-sm-12 d-flex justify-content-center">
+                <% if (group == "patient" && login){ %>
+                    <h4>How can we help you?</h4>
+                <% } else if (group == "caregiver" && login){ %>
+                    <div class="row">
+                        <h4>Caring for our patients is our passion</h4>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
